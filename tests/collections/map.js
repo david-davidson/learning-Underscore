@@ -2,23 +2,17 @@
 
 var _ = require('underscore'),
 	expect = require('chai').expect,
-	capitalizedNames,
-	names = ['David', 'Emily', 'Tyrel', 'Pam'];
+	names = [ 'David', 'Emily', 'Tyrel', 'Pam' ],
+	capitalizedNames;
 
 describe('map', function() {
 
-	before(function() {
+	it('Accepts a collection and a function, runs each item through the function, and builds the results into a new array', function() {
 		capitalizedNames = _.map(names, function(name) {
 			return name.toUpperCase();
 		});
-	});
-
-	it('Accepts an array', function() {
-		expect(capitalizedNames).to.be.ok;
-	});
-
-	it('Performs an operation on each item, and builds a new array', function() {
 		expect(_.isArray(capitalizedNames)).to.eql(true);
-		expect(capitalizedNames).to.eql(['DAVID', 'EMILY', 'TYREL', 'PAM']);
+		expect(capitalizedNames).to.eql([ 'DAVID', 'EMILY', 'TYREL', 'PAM' ]);
 	});
+
 });
